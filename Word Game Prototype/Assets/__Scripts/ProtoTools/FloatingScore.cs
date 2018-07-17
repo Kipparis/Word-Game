@@ -32,7 +32,7 @@ public class FloatingScore : MonoBehaviour {
         }
     }
 
-    public List<Vector2>    bezierPts; // Bézier points for movement 
+    public List<Vector3>    bezierPts; // Bézier points for movement 
     public List<float>      fontSizes; // Bézier points for font scaling 
     public float            timeStart = -1f;
     public float            timeDuration = 1f;
@@ -46,13 +46,13 @@ public class FloatingScore : MonoBehaviour {
 
     // Set up the FloatingScore and movement
     // Note the use of parameter defaults for eTimeS & eTimeD
-    public void Init(List<Vector2> ePts, float eTimeS = 0, float eTimeD = 1) {
+    public void Init(List<Vector3> ePts, float eTimeS = 0, float eTimeD = 1) {
         rectTrans = GetComponent<RectTransform>();
         rectTrans.anchoredPosition = Vector2.zero;
 
         txt = GetComponent<Text>();
 
-        bezierPts = new List<Vector2>(ePts);
+        bezierPts = new List<Vector3>(ePts);
 
         if (ePts.Count == 1) { // If there's only one point
             // ...then just go there.

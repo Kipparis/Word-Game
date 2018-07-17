@@ -56,9 +56,10 @@ public class Scoreboard : MonoBehaviour {
     // This will Instantiate a new FloatingScore GameObject and initialize it.
     // It also returns a pointer to the FloatingScore created so that the
     //   calling function can do more with it (like set fontSizes, and so on)
-    public FloatingScore CreateFloatingScore(int amt, List<Vector2> pts) {
+    public FloatingScore CreateFloatingScore(int amt, List<Vector3> pts) {
         GameObject go = Instantiate<GameObject>(prefabFloatingScore);
         go.transform.SetParent( canvasTrans );
+        go.transform.localScale = Vector3.one * 4;
         FloatingScore fs = go.GetComponent<FloatingScore>();
         fs.score = amt;
         fs.reportFinishTo = this.gameObject; // Set fs to call back to this
